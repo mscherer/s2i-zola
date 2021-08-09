@@ -5,6 +5,6 @@ cp -Rf /tmp/src/. .
 
 echo "---> Build the website with zola"
 OPTIONS=
-[ ! -v WEBSITE_URL ] && OPTIONS="-u $WEBSITE_URL"
-[ ! -v DRAFTS ] &&  OPTIONS="$OPTIONS --drafts"
+[ -v WEBSITE_URL ] && OPTIONS="-u $WEBSITE_URL"
+[ -v DRAFTS ] &&  OPTIONS="$OPTIONS --drafts"
 zola build $OPTIONS

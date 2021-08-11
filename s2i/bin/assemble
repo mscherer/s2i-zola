@@ -3,6 +3,7 @@ set -e
 echo "---> Installing application source ..."
 cp -Rf /tmp/src/. .
 
+# build here, so we fail at build time, not at run time with zola serve
 echo "---> Build the website with zola"
 OPTIONS=
 [ -v WEBSITE_URL ] && OPTIONS="-u $WEBSITE_URL"

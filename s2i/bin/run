@@ -1,2 +1,5 @@
 #!/bin/bash
-exec zola serve --port 8080 
+OPTIONS="--port 8080"
+[ -v WEBSITE_URL ] && OPTIONS="$OPTIONS -u $WEBSITE_URL"
+[ -v DRAFTS ] &&  OPTIONS="$OPTIONS --drafts"
+exec zola serve $OPTIONS

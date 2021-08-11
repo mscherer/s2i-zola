@@ -4,7 +4,7 @@ echo "---> Installing application source ..."
 cp -Rf /tmp/src/. .
 
 # build here, so we fail at build time, not at run time with zola serve
-echo "---> Build the website with zola"
+echo "---> Build the website with zola (cargo)"
 OPTIONS=
 [ -v WEBSITE_URL ] && OPTIONS="-u $WEBSITE_URL"
 [ -v DRAFTS ] &&  OPTIONS="$OPTIONS --drafts"

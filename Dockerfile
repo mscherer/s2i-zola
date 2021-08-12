@@ -20,9 +20,10 @@ RUN mkdir -p /opt/app-root/src
 RUN useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin -c "Default Application User" default
 RUN chown -R 1001:0 /opt/app-root 
 
-RUN dnf install -y zola && dnf clean all
+RUN dnf install -y zola nginx && dnf clean all
 
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
+COPY ./s2i/nginx.conf  /etc/nginx/nginx.conf
 WORKDIR ${HOME}
 
 USER 1001

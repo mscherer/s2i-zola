@@ -23,7 +23,10 @@ RUN chown -R 1001:0 /opt/app-root
 RUN dnf install -y cargo gcc-g++ pkgconfig libsass-devel && dnf clean all
 RUN cd /tmp/ && git clone https://github.com/getzola/zola/ && cd zola && cargo build --release && cp target/release/zola /usr/local/bin/
 
+RUN dnf install -y nginx && dnf clean all
+
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
+COPY ./s2i/nginx.conf  /etc/nginx/nginx.conf
 WORKDIR ${HOME}
 
 USER 1001

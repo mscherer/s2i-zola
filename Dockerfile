@@ -21,7 +21,7 @@ RUN useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin -c "Default Application 
 RUN chown -R 1001:0 /opt/app-root 
 
 RUN dnf install -y cargo gcc-g++ pkgconfig libsass-devel && dnf clean all
-RUN cd /tmp/ && git clone https://github.com/getzola/zola/ && cd zola && cargo build --release && cp target/release/zola /usr/local/bin/
+RUN cd /tmp/ && git clone https://github.com/getzola/zola/ && cd zola && cargo build --release && cp target/release/zola /usr/local/bin/ && rm -Rf /tmp/zola
 
 
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH

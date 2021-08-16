@@ -1,2 +1,3 @@
 #!/bin/bash
+set -x
 exec thttpd -p 8080 -d /opt/app-root/src/public -D 

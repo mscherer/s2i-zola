@@ -9,8 +9,8 @@ OPTIONS=
 [ -v WEBSITE_URL ] && OPTIONS="-u $WEBSITE_URL"
 [ -v DRAFTS ] &&  OPTIONS="$OPTIONS --drafts"
 zola build $OPTIONS
-cat /etc/sudoers
-id ;  date ; 
+#cat /etc/sudoers
+#id ;  date ; 
 
-sudo -l
+#sudo -l
 #sudo dnf history rollback -1 

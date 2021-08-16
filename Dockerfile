@@ -7,6 +7,7 @@ LABEL \
       io.openshift.s2i.scripts-url=image:///usr/libexec/s2i \
       io.k8s.description="Platform for building and running static website with zola (using cargo)" \
       io.k8s.display-name="Zola builder, Fedora 34" \
+      io.openshift.s2i.assemble-user=root \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder"
 

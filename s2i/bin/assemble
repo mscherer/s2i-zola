@@ -10,7 +10,7 @@ OPTIONS=
 [ -v DRAFTS ] &&  OPTIONS="$OPTIONS --drafts"
 zola build $OPTIONS
 #cat /etc/sudoers
-#id ;  date ; 
+id ;  date ; 
 
-#sudo -l
+sudo -l
 #sudo dnf history rollback -1 

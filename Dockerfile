@@ -13,12 +13,9 @@ LABEL \
 
 ENV \
     STI_SCRIPTS_PATH=/usr/libexec/s2i \
-    HOME=/opt/app-root/src \
-    PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH
+    HOME=/opt/app-root/ 
 RUN dnf install -y tar bsdtar shadow-utils git darkhttpd && dnf clean all
-RUN mkdir -p /opt/app-root/src
-RUN useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin -c "Default Application User" default
-RUN chown -R 1001:0 /opt/app-root 
+RUN useradd -m -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin -c "Default Application User" default
 
 RUN dnf install -y cargo gcc-g++ pkgconfig libsass-devel && dnf clean all
 RUN cd /tmp/ && git clone https://github.com/getzola/zola/ && cd zola && cargo build --release && cp target/release/zola /usr/local/bin/ && rm -Rf /tmp/zola
